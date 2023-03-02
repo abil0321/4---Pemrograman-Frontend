@@ -39,4 +39,4 @@
 
 
 ## Hasil Saya
-![Test Success](img/hasil.png)
+![Test Success](img/hasil.PNG)
