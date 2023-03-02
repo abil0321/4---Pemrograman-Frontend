@@ -4,7 +4,34 @@
  * Object memiliki property: name, age, major.
  * Note: Ubah var menggunakan JavaScript Modern.
  */
-var users;
+// var users;
+const users = [
+  {
+      name: 'Gilang',
+      age: 20,
+      major: 'Informatics',
+  },
+  {
+      name: 'Abil',
+      age: 21,
+      major: 'Informatics',
+  },
+  {
+      name: 'Efendi',
+      age: 20,
+      major: 'Informatics',
+  },
+  {
+      name: 'Gigih',
+      age: 21,
+      major: 'Informatics',
+  },
+  {
+      name: 'Aziz',
+      age: 21,
+      major: 'Informatics',
+  }
+];
 
 /**
  * TODO 2
@@ -12,7 +39,13 @@ var users;
  * Hint: Gunakan for/for-of.
  * Note: Ubah function menggunakan arrow function.
  */
-function all() {}
+function all() {
+  for (let i = 0; i < users.length; i++) {
+    console.log(`Nama : ${users[i].name}`);
+    console.log(`Age : ${users[i].age}`);
+    console.log(`Major : ${users[i].major} \n`);
+}
+}
 
 /**
  * TODO 3
@@ -20,7 +53,10 @@ function all() {}
  * Hint: Gunakan method push.
  * Note: Ubah function menggunakan arrow function.
  */
-function store(user) {}
+function store(user) {
+  users.push(user);
+// getAll();
+}
 
 /**
  * TODO 4.
@@ -28,7 +64,11 @@ function store(user) {}
  * Hint: re-assign array.
  * Note: Ubah function menggunakan arrow function.
  */
-function update(index, user) {}
+function update(index, user) {
+  users[index] = (user);
+
+// getAll();
+}
 
 /**
  * TODO 5.
@@ -36,7 +76,11 @@ function update(index, user) {}
  * Hint: Gunakan method splice.
  * Note: Ubah function menggunakan arrow function.
  */
-function destroy(index) {}
+function destroy(index) {
+  users.splice(index, 1);
+
+  // getAll();
+}
 
 /**
  * Function main.
