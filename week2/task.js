@@ -76,6 +76,7 @@ const destroy = (index) => {
     // getAll();
 }
 
+
 destroy(4);
 
 
