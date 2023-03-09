@@ -58,7 +58,7 @@
 // });
 
 // console.log(names);
-// console.log(...namaFormat);
+// console.log(namaFormat);
 
 // -------------------------------------------------------------------------------------
 
@@ -87,3 +87,95 @@
 
 // -------------------------------------------------------------------------------------
 
+const users = [
+    {
+      name: "Aufa",
+      age: 22,
+      major: "Frontend Engineer",
+    },
+    {
+      name: "Isfa",
+      age: 20,
+      major: "Android Engineer",
+    },
+    {
+      name: "Agung",
+      age: 24,
+      major: "Data Engineer",
+    },
+    {
+      name: "Nurul",
+      age: 24,
+      major: "English",
+    },
+    {
+      name: "Jaki",
+      age: 27,
+      major: "English",
+    },
+  ];
+
+
+// async function addTitlesToUsers() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const usersWithTitles = users.map(function(user) {
+//         return {
+//           ...user,
+//           name: "Mr/Mrs. " + user.name,
+//         };
+//       });
+//       resolve(usersWithTitles);
+//     }, 5000);
+//   });
+// }
+
+//  const formatUser = (title) => {
+//   return new Promise ((resolve, reject) => {
+//       setTimeout(() => {
+//           const userName = users.map((user) => {
+//               return {
+//                   ...user,
+//                   name: `${title}  ${user.name}`,
+//               };
+//           });
+//           resolve(userName);
+//       }, 3000);
+//   });
+// }
+
+const formatUser = (title) => {
+  return new Promise ((resolve, reject) => {
+      setTimeout(() => {
+          const userName = users.map((user) => {
+              return {
+                  ...user,
+                  name: `${title}  ${user.name}`,
+              };
+          });
+          resolve(userName);
+      }, 3000);
+  });
+}
+
+
+const findByName = (name) => {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          const userFind = users.filter((user) => {
+              return user.major == name;
+          })
+          resolve(userFind); 
+      }, 2000)
+  })
+};
+
+async function main() {
+  const formatUserN = await formatUser('Mr/Mrs');
+  console.log(formatUserN);
+
+  const findUserN = await findByName("English");
+  console.log(findUserN);
+}
+
+main();
