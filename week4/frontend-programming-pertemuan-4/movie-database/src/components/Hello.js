@@ -3,14 +3,14 @@
  * Component Hello menerima inputan: props.
  *
  */
-function Hello(props) {
+const Hello = (props) => {
   // Melakukan destructing props (object)
-  const { name } = props;
+  // const { name } = props;
 
   return (
     <div className="hello">
       <h2>Hello React</h2>
-      <p>Saya {name} - Frontend Engineer</p>
+      <p>Saya {props.name} - {props.major}</p>
     </div>
   );
 }
