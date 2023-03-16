@@ -1,5 +1,6 @@
-# Hasilnya
-![hasilnya.PNG]( {[link gambar](https://github.com/abil0321/4---Pemrograman-Frontend/blob/task_week4/week4/frontend-programming-pertemuan-4/movie-database/hasilnya.PNG)} )
+# Hasilnya =----=
+![link gambar](https://github.com/abil0321/4---Pemrograman-Frontend/blob/task_week4/week4/frontend-programming-pertemuan-4/movie-database/hasilnya.PNG)
+
 
 # Getting Started with Create React App
 
