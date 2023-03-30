@@ -13,7 +13,7 @@ const Hero = () => {
                     <button className={styles.hero__button}>Watch now!!</button>
                 </div>
                 <div className={styles.hero__right}>
-                    <img className={styles.hero__image} src="https://picsum.photos/536/345" alt="" srcset="" />
+                    <img className={styles.hero__image} src="https://picsum.photos/536/345" alt=""  />
                 </div>
             </div>
         </div>

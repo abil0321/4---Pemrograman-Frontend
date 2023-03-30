@@ -9,7 +9,7 @@ const AddMovie = () => {
             className={styles.addMovie__image}
             src="https://picsum.photos/536/345"
             alt=""
-            srcset=""
+            
           />
         </div>
         <div className={styles.addMovie__right}>
