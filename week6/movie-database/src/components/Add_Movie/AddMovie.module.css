@@ -1,0 +1,75 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+  }
+  
+  .addMovie {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .addMovie__left {
+    margin-bottom: 1rem;
+  }
+  
+  .addMovie__title {
+    color: rgb(0, 255, 238);
+    margin-bottom: 3rem;
+    font-size: 2.44rem;
+  }
+
+  .addMovie__addInput{
+    margin: 0.8rem 0 1rem 0;
+    border: 3px solid rgb(0, 255, 238);
+    border-radius: 5px;
+    padding: 0.3rem 5.5rem 0.3rem 0;
+  }
+
+  .addMovie__inputTitle{
+    color: #595959;
+    font-size: 1rem;
+  }
+  
+  .addMovie__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+  }
+
+  .addMovie__buttonInput {
+    padding: 0.5rem 6.6rem 0.5rem 6.6rem;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(0, 255, 238);
+    color: #fff;
+  }
+  
+  /* Medium Screen */
+  @media (min-width: 768px) {
+    /*
+     * Nothing TODO Here.
+     * We dont change style addMovie. 
+     */
+  }
+  
+  /* Large Screen */
+  @media (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+  
+    .addMovie {
+      margin: 0 1rem;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      text-align: left;
+    }
+  
+    .addMovie__left {
+      flex-basis: 40%;
+    }
+  
+  }
