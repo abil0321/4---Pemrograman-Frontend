@@ -6,7 +6,7 @@
 function Footer() {
   return (
     <footer>
-      <h2>Copyright @aufaroot18</h2>
+      <h2>Copyright @MuhammadSalsabil</h2>
       <p>Website ini dibuat menggunakan ReactJS</p>
     </footer>
   );
