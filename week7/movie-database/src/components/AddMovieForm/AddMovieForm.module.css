@@ -47,6 +47,19 @@
   border: 1px solid #4361ee;
 }
 
+.form__dropbtn {
+  outline: none;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #64748b;
+}
+
+.form__dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
 .form__button {
   padding: 0.8rem 2rem;
   border: none;

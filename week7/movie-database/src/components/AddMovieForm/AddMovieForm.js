@@ -16,10 +16,14 @@ function AddMovieForm(props) {
   // Membuat state title dan date
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
+  const [poster, setPoster] = useState("");
+  const [type, setType] = useState("");
 
   // Membuat state: isTitleError, isDateError
   const [isTitleError, setIsTitleError] = useState(false);
   const [isDateError, setIsDateError] = useState(false);
+  const [isPosterError, setIsPosterError] = useState(false);
+  const [isTypeError, setIsTypeError] =useState(false);
 
   /**
    * Membuat fungsi handleTitle
@@ -45,6 +49,32 @@ function AddMovieForm(props) {
     setDate(e.target.value);
   }
 
+  /**
+   * Membuat fungsi handlePoster
+   * Dijalankan ketika nilai input berubah
+   */
+  const handlePoster = (e) => {
+    /**
+     * Jalankan fungsi setPoster.
+     * Set poster nilai baru: input saat ini.
+     */
+
+    setPoster(e.target.value);
+  }
+
+   /**
+   * Membuat fungsi handleType
+   * Dijalankan ketika nilai input berubah
+   */
+   const handleType = (e) => {
+    /**
+     * Jalankan fungsi setType.
+     * Set type nilai baru: input saat ini.
+     */
+
+    setType(e.target.value);
+  }
+
   function handleSubmit(e) {
     /**
      * Mencegah perilaku default form.
@@ -56,9 +86,17 @@ function AddMovieForm(props) {
     if (title === "") {
       setIsTitleError(true);
     }
-    // Jika title kosong, set isTitleError true
+    // Jika date kosong, set isDateError true
     else if (date === "") {
       setIsDateError(true);
+    }
+    // Jika poster kosong, set isPosterError true
+    else if (poster === "") {
+      setIsPosterError(true);
+    }
+    // Jika poster kosong, set isPosterError true
+    else if (type === "") {
+      setIsTypeError(true);
     }
     // Jika tidak, maka push movie dan set error false
     else {
@@ -66,8 +104,8 @@ function AddMovieForm(props) {
         id: nanoid(),
         title: title,
         year: date,
-        type: "Movie",
-        poster: "https://picsum.photos/300/400",
+        type: type,
+        poster: poster,
       };
 
       // SOLVED: HOW TO ADD MOVIE TO MOVIES :)
@@ -75,6 +113,8 @@ function AddMovieForm(props) {
 
       setIsTitleError(false);
       setIsDateError(false);
+      setIsPosterError(false);
+      setIsTypeError(false);
     }
   }
 
@@ -111,6 +151,7 @@ function AddMovieForm(props) {
                */}
               {isTitleError && <Alert>Title Wajib Diisi</Alert>}
             </div>
+
             <div className={styles.form__group}>
               <label htmlFor="date" className={styles.form__label}>
                 Date
@@ -131,6 +172,47 @@ function AddMovieForm(props) {
                */}
               {isDateError && <Alert>Date Wajib Diisi</Alert>}
             </div>
+
+            <div className={styles.form__group}>
+            <label htmlFor="image" className={styles.form__label}>
+                Image
+              </label>
+
+              <input
+                id="image"
+                className={styles.form__input}
+                type="text"
+                name="image"
+                // Memberikan value input: date
+                value={poster}
+                // Memberikan event onChange
+                onChange={handlePoster}
+              />
+
+              {isPosterError && <Alert>Link Gambar Wajib Diisi</Alert>}
+            </div>
+
+            <div className={styles.form__group}>
+              <label htmlFor="type" className={styles.form__label}>
+                Type
+              </label>
+            
+              
+                <select className={styles.form__dropbtn} value={type} onChange={handleType}>
+  	              
+    	              <option selected>Pilih ...</option>
+    	              <option value="Comedy">Comedy</option>
+    	              <option value="Action">Action</option>
+    	              <option value="Thriler">Thriler</option>
+    	              <option value="Horor">Horor</option>
+    	              <option value="Drama">Drama</option>
+    	              <option value="dll ...">dll ...</option>
+   	               
+                </select>
+                {isTypeError && <Alert>Category Wajib Dipilih</Alert>}
+               
+           </div>
+
             <div>
               <button className={styles.form__button}>Add Movie</button>
             </div>

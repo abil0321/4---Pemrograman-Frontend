@@ -8,7 +8,7 @@ function Movies(props) {
 
   function handleClick() {
     const movie = {
-      id: nanoid(),
+      id: nanoid(), 
       title: "Jigsaw Spiral",
       year: 2021,
       type: "Movie",
