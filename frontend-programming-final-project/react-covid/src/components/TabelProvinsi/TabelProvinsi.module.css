@@ -1,0 +1,47 @@
+/* Small Screen */
+.container {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.provinsi__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.provinsi__table,
+th,
+td {
+  border: 1px solid #64748b;
+  text-align: center;
+  padding: 1rem;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+  /*
+       * Nothing TODO Here.
+       * We dont change style Hero. 
+       */
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+  .provinsi__table,
+  th,
+  td {
+    font-size: 16px;
+  }
+
+  .provinsi__table {
+    width: 60%;
+  }
+}

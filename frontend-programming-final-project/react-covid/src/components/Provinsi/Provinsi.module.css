@@ -1,0 +1,58 @@
+/* Small Screen */
+.container {
+  margin: 0;
+  padding: 1rem;
+  width: auto;
+}
+
+.provinsi__container {
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  align-items:center;
+  margin-bottom: 0;
+}
+
+.provinsi{
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.provinsi__title {
+  color: #06d6a0;
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.provinsi__subtitle {
+  font-family: "Poppins";
+  font-style: normal;
+  /* Secondary */
+  color: #118ab2;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+  /*
+     * Nothing TODO Here.
+     * We dont change style Hero. 
+     */
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+  .provinsi__subtitle {
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 38px;
+    /* identical to box height */
+  }
+
+  .provinsi__title {
+    margin-bottom: 0rem;
+    font-weight: 500;
+    font-size: 61px;
+    line-height: 92px;
+  }
+
+}
