@@ -8,9 +8,10 @@ function FormCovid(props) {
   const { dataProvinsi, setDataProvinsi } = props;
   
   const select_status = [
-    {name: 'sembuh'},
-    {name: 'dirawat'},
-    {name: 'meninggal'},
+    {name: 'Positif'},
+    {name: 'Sembuh'},
+    {name: 'Dirawat'},
+    {name: 'Meninggal'},
   ];
 
   const provinsi = dataProvinsi.provinces.map((dataP, index) => {
@@ -57,7 +58,7 @@ function FormCovid(props) {
   }else if (jumlah === 0) {
       setIsJumlahError(true);
   }else {
-      if (status === "sembuh") {
+      if (status === "Sembuh") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
@@ -67,7 +68,7 @@ function FormCovid(props) {
           ),
         };
         setDataProvinsi(updatedData);
-      } else if (status === "dirawat") {
+      } else if (status === "Dirawat") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
@@ -77,12 +78,22 @@ function FormCovid(props) {
           ),
         };
         setDataProvinsi(updatedData);
-      } else if(status === "meninggal") {
+      } else if(status === "Meninggal") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
               ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus),meninggal: parseInt(jumlah) + parseInt(province.meninggal)}
+              : province
+          ),
+        };
+        setDataProvinsi(updatedData);
+      } else if(status === "Positif") {
+        const updatedData = {
+          ...dataProvinsi,
+          provinces: dataProvinsi.provinces.map((province) =>
+            province.kota === kota
+              ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus)}
               : province
           ),
         };
