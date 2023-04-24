@@ -63,7 +63,7 @@ function FormCovid(props) {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus),sembuh: parseInt(jumlah) + parseInt(province.sembuh)}
+              ? { ...province, sembuh: parseInt(jumlah) + parseInt(province.sembuh)}
               : province
           ),
         };
@@ -73,7 +73,7 @@ function FormCovid(props) {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus),dirawat: parseInt(jumlah) + parseInt(province.dirawat)}
+              ? { ...province, dirawat: parseInt(jumlah) + parseInt(province.dirawat)}
               : province
           ),
         };
@@ -83,7 +83,7 @@ function FormCovid(props) {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus),meninggal: parseInt(jumlah) + parseInt(province.meninggal)}
+              ? { ...province, meninggal: parseInt(jumlah) + parseInt(province.meninggal)}
               : province
           ),
         };
