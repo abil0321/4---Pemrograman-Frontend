@@ -126,7 +126,7 @@ function AddMovieForm(props) {
 
             <div className={styles.form__group}>
               <label htmlFor="date" className={styles.form__label}>
-                Date
+                Year
               </label>
               <input
                 id="date"
