@@ -16,7 +16,7 @@ function Counter() {
      * Update state result menggunakan fungsi setResult
      */
     setResult(result + 1);
-  }
+  } 
 
   return (
     <div>
