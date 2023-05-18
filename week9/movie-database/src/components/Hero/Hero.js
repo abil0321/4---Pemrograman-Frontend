@@ -11,8 +11,13 @@ function Hero() {
     const data = await response.json();
 
     setMovie(data);
-  } 
-  useEffect(fetchMovie, []);
+  }
+  
+  useEffect(() => {
+    fetchMovie();
+  }, []);
+
+  // useEffect(fetchMovie, []);
 
   console.log(movie);
   return (
@@ -20,12 +25,8 @@ function Hero() {
       <section className={styles.hero}>
         <div className={styles.hero__left}>
           <h2 className={styles.hero__title}>{movie.Title}</h2>
-          <h3 className={styles.hero__genre}>
-            {movie.Genre}
-          </h3>
-          <p className={styles.hero__description}>
-            {movie.Plot}
-          </p>
+          <h3 className={styles.hero__genre}>{movie.Genre}</h3>
+          <p className={styles.hero__description}>{movie.Plot}</p>
           <button className={styles.hero__button}>Watch</button>
         </div>
         <div className="hero__right">
