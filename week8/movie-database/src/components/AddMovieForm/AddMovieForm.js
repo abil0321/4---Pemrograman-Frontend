@@ -23,10 +23,15 @@ function AddMovieForm(props) {
   const {title, date, poster, type} = formData
 
   // Membuat state: isTitleError, isDateError
-  const [isTitleError, setIsTitleError] = useState(false);
-  const [isDateError, setIsDateError] = useState(false);
-  const [isPosterError, setIsPosterError] = useState(false);
-  const [isTypeError, setIsTypeError] =useState(false);
+  const [formErrors, setFormErrors] = useState({
+    isTitleError: false,
+    isDateError: false,
+    isPosterError: false,
+    isTypeError: false,
+  });
+
+  const { isTitleError, isDateError, isPosterError, isTypeError } = formErrors;
+
 
   function handleChange(e){
     const {name, value} = e.target;
@@ -37,36 +42,29 @@ function AddMovieForm(props) {
     });
   }
 
-  function validate(){
-    // Jika title kosong, set isTitleError true
-    if (title === "") {
-      setIsTitleError(true);
-      return false;
-    }
-    // Jika date kosong, set isDateError true
-    else if (date === "") {
-      setIsDateError(true);
-      setIsTitleError(false);
-      return false;
 
+  function validate() {
+    const errors = {};
+
+    if (title === "") {
+      errors.isTitleError = true;
     }
-    // Jika poster kosong, set isPosterError true
-    else if (poster === "") {
-      setIsPosterError(true);
-      setIsDateError(false);
-      return false;
+
+    if (date === "") {
+      errors.isDateError = true;
     }
-    // Jika poster kosong, set isPosterError true
-    else if (type === "") {
-      setIsTypeError(true);
-      setIsPosterError(false);
-      return false;
+
+    if (poster === "") {
+      errors.isPosterError = true;
     }
-    else{
-      setIsTitleError(false);
-      setIsDateError(false);
-      return true;
+
+    if (type === "") {
+      errors.isTypeError = true;
     }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors);
   }
 
   function addMovie(){
@@ -85,7 +83,9 @@ function AddMovieForm(props) {
   function handleSubmit(e){
     e.preventDefault();
     
-    validate() && addMovie();
+    if (validate()) {
+      addMovie();
+    }
   }
 
   return (
