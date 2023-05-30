@@ -2,7 +2,7 @@
  * Import CSS Module Footer.
  * Disimpan di object styles.
  */
-import styles from "./Footer.module.css";
+import FooterStyled from "./FooterStyledComponent";
 
 function Footer() {
   /**
@@ -10,12 +10,14 @@ function Footer() {
    * Memanggilnya menggunakan expression.
    */
   return (
-    <div className={styles.container}>
-      <footer className={styles.footer}>
-        <h2 className={styles.footer__title}>Movie App</h2>
-        <p className={styles.footer__author}>Created by aufaroot18 & Editted by salsabilmuhammad45</p>
+    <FooterStyled>
+      <footer >
+        <h2>Movie App</h2>
+        <p>
+          Created by aufaroot18 & Editted by salsabilmuhammad45
+        </p>
       </footer>
-    </div>
+    </FooterStyled>
   );
 }
 

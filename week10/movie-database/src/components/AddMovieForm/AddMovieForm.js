@@ -87,6 +87,14 @@ function AddMovieForm(props) {
     if (validate()) {
       addMovie();
     }
+    
+    setFormData({
+      title: '',
+      date: '',
+      poster: '',
+      type: '',
+    });
+    
   }
 
   return (

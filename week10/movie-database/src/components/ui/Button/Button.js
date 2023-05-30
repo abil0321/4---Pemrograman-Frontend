@@ -6,7 +6,6 @@ import styled, { css } from "styled-components";
 // };
 
 const Button = styled.button`
-  padding: 0.8rem 2rem;
   border: none;
   border-radius: 10px;
   color: white;
@@ -27,6 +26,22 @@ const Button = styled.button`
     }
   }};
 
+  font-size: ${(props) => {
+    if (props.size) {
+      return props.theme.fontSize[props.size]
+    }else {
+      return props.theme.fontSize["md"];
+    }
+  }};
+
+  padding: ${(props) => {
+    if (props.size) {
+      return props.theme.padding[props.size]
+    }else {
+      return props.theme.padding["md"];
+    }
+  }};
+
   ${(props) => {
     return (
       props.full &&
@@ -36,5 +51,7 @@ const Button = styled.button`
       `
     );
   }}
+
+  
 `;
 export default Button;
