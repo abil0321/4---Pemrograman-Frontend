@@ -2,6 +2,8 @@ const theme = {
   colors: {
     primary: "#4361ee",
     secondary: "#b5179e",
+    paragraph: "#64748b",
+    none: "",
   },
 //   bisa nambahin width, pading, margin, dll
   // size: {

@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import Button from "../ui/Button/Button";
+import Heading from "../ui/Typography/Heading";
+import Paragraph from "../ui/Typography/Paragraph";
+import Image from "../ui/Media/Image";
 import StyledHero from "./HeroStyledComponent";
 
 function Hero() {
@@ -25,17 +28,25 @@ function Hero() {
     <StyledHero>
       <section>
         <div className="hero__left">
-          <h2>{movie.Title}</h2>
+          {/* <h2>{movie.Title}</h2> */}
+          <Heading>{movie.Title}</Heading>
+
           <h3>{movie.Genre}</h3>
-          <p>{movie.Plot}</p>
+          {/* <p>{movie.Plot}</p> */}
+
+          <Paragraph>{movie.Plot}</Paragraph>
           <Button variant="secondary" size="lg">Watch</Button>
           
         </div>
         <div className="hero__right">
-          <img
+          {/* <img
             src={movie.Poster}
             alt={movie.Title}
-          />
+          /> */}
+          <Image
+          src={movie.Poster}
+          alt={movie.Title}/>
+
         </div>
       </section>
     </StyledHero>
