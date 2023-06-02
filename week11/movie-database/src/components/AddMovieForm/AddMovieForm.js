@@ -180,8 +180,8 @@ function AddMovieForm(props) {
             
               
                 <select className={styles.form__dropbtn} value={type} name="type" onChange={handleChange}>
-  	              
-    	              <option selected>Pilih ...</option>
+{/*   	              
+    	              <option value="pilih">Pilih ...</option> */}
     	              <option value="Comedy">Comedy</option>
     	              <option value="Action">Action</option>
     	              <option value="Thriler">Thriler</option>
