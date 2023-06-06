@@ -24,7 +24,7 @@ const PopularMovie = () => {
     <>
       {/* <h2>Popular Movie</h2> */}
       <Hero />
-      <Movies movies={movies} />
+      <Movies movies={movies} title="Popular Movies"/>
     </>
   );
 };

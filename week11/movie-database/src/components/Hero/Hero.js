@@ -54,7 +54,7 @@ function Hero() {
           {/* <p>{movie.Plot}</p> */}
 
           <Paragraph>{movie.overview}</Paragraph>
-          <Button as= "a" href= {trailer} variant="secondary" size="lg">Watch</Button>
+          <Button as= "a" href= {trailer} variant="secondary" size="lg" target="_blank">Watch</Button>
           
         </div>
         <div className="hero__right">
