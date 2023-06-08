@@ -10,7 +10,7 @@ function Movie(props) {
       <div className="movie">
         <img src={movie.poster || `https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
         <h3>{movie.title || movie.original_title}</h3>
-        <p>{movie.year || movie.relase_date}</p>
+        <p>{movie.year || movie.release_date}</p>
 
         <p>Category: {movie.type}</p>
       </div>
