@@ -28,7 +28,7 @@ function Hero() {
   // useEffect(getTrandingMovies, []);
 
   async function getTrandingMovies() {
-    const URL = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`;
+    const URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
     const response = await axios(URL);
     // console.log(response.data.results[0]);
     return response.data.results[0];
@@ -63,8 +63,8 @@ function Hero() {
             alt={movie.Title}
           /> */}
           <Image
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          alt={movie.Title}/>
+          src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+          alt={movie.title}/>
 
         </div>
       </section>
