@@ -4,23 +4,7 @@ import styles from "./Movies.module.css";
 
 function Movies(props) {
   // Destructing props: state movies
-  const { movies, setMovies, title } = props;
-
-  function handleClick() {
-    const movie = {
-      id: nanoid(), 
-      title: "Jigsaw Spiral",
-      year: 2021,
-      type: "Movie",
-      poster: "https://picsum.photos/300/400",
-    };
-
-    /**
-     * Update state movies: setMovies
-     * Melakukan teknik spread untuk copy dan merge array
-     */
-    setMovies([...movies, movie]);
-  }
+  const { movies, title } = props;
 
   return (
     <div>
@@ -32,7 +16,7 @@ function Movies(props) {
               return <Movie key={movie.id} movie={movie} />;
             })}
           </div>
-          <button onClick={handleClick}>Add Movie</button>
+    
         </section>
       </div>
     </div>

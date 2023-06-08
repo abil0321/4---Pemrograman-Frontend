@@ -23,9 +23,9 @@ function Movie(props) {
           <h3>{movie.title || movie.original_title}</h3>
         </Link>
 
-        <p>{movie.year || movie.relase_date}</p>
+        <p>{movie.year || movie.release_date}</p>
 
-        <p>Category: {movie.type}</p>
+        {/* <p>Category: {movie.type}</p> */}
       </div>
     </StyledMovie>
   );

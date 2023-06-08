@@ -11,6 +11,7 @@ import theme from "./utils/constants/theme/theme";
 import DetailMovie from "./pages/movie/detail/DetailMovie";
 
 
+
 function App() {
   /**
    * Menampilkan Halaman Home.

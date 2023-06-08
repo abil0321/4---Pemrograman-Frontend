@@ -50,8 +50,9 @@ const StyledDetailMovie = styled.div`
 
 function Detail() {
   const { id } = useParams();
-  const API_KEY = process.env.REACT_APP_API_KEY;
   const [movie, setMovie] = useState("");
+
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   async function fetchDetailMovie() {
     const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
@@ -61,12 +62,13 @@ function Detail() {
 
   useEffect(() => {
     fetchDetailMovie();
-  }, []);
+  }, [id]);
 
   console.log(movie);
 
   const genres = movie && movie.genres.map((genre) => genre.name).join(", ");
-  const trailer = movie && `https://youtube.com/watch?v=${movie.videos.results[0].key}`;
+  const trailer = movie && `https://youtube.com/watch?v=${movie.videos.results[0]?.key ?? 'YAY-nmmPO-E'}`;
+  
 
   return (
     <>
