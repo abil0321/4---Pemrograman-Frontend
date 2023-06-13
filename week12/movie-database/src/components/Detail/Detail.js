@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Button from "../ui/Button/Button";
+import ENDPOINTS from "../../utils/constants/enpoints";
 
 const StyledDetailMovie = styled.div`
   // Mobile Screen
@@ -55,8 +56,8 @@ function Detail() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   async function fetchDetailMovie() {
-    const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
-    const response = await axios(URL);
+    // const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`;
+    const response = await axios(ENDPOINTS.DETAIL(id));
     setMovie(response.data);
   }
 
