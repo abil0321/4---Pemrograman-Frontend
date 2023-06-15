@@ -3,6 +3,9 @@ import { useState } from "react";
 import Alert from "../Alert/Alert";
 import styles from "./AddMovieForm.module.css";
 import Button from "../ui/Button/Button";
+import {useNavigate} from "react-router-dom"
+import {useDispatch} from "react-redux";
+import { addMovie } from "../../features/movieSlice";
 
 // Menangkap props
 function AddMovieForm(props) {
@@ -11,8 +14,10 @@ function AddMovieForm(props) {
    * Kode yang lainnya tetap sama.
    */
 
+  const dispatch = useDispatch();
+
+  const navigation = useNavigate();
   // Destructing props: state movies
-  const { movies, setMovies } = props;
 
   // Membuat state title dan date
  const [formData, setFormData] = useState({
@@ -45,30 +50,27 @@ function AddMovieForm(props) {
 
 
   function validate() {
-    const errors = {};
+    const errors = {...formErrors};
+    let isInvalid = false;
 
-    if (title === "") {
-      errors.isTitleError = true;
+    for (let key in errors) {
+      if (formData[key] === "") {
+        errors[key] = true;
+        isInvalid = false;
+      } else {
+        errors[key] = false;
+        isInvalid = true;
+      }
     }
 
-    if (date === "") {
-      errors.isDateError = true;
-    }
+    setFormErrors({...errors});
 
-    if (poster === "") {
-      errors.isPosterError = true;
-    }
+    console.log(isInvalid);
+    // return isInvalid;
 
-    if (type === "") {
-      errors.isTypeError = true;
-    }
-
-    setFormErrors(errors);
-
-    return Object.keys(errors);
   }
 
-  function addMovie(){
+  function submitMovie(){
      const movie = {
         id: nanoid(),
         title: title,
@@ -78,14 +80,16 @@ function AddMovieForm(props) {
       };
 
       // SOLVED: HOW TO ADD MOVIE TO MOVIES :)
-      setMovies([...movies, movie]);
+
+      dispatch(addMovie(movie));
+      navigation("/");
   }
 
   function handleSubmit(e){
     e.preventDefault();
     
     if (validate()) {
-      addMovie();
+      submitMovie();
     }
     
     setFormData({

@@ -1,10 +1,13 @@
 // import { nanoid } from "nanoid";
+import { useSelector } from "react-redux";
 import Movie from "../Movie/Movie";
 import styles from "./Movies.module.css";
 
 function Movies(props) {
   // Destructing props: state movies
-  const { movies, title } = props;
+  const { title } = props;
+
+  const movies = useSelector((state) => state.movies.movies);
 
   return (
     <div>

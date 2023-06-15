@@ -1,7 +1,11 @@
-const CreateMovie = () => {
+import AddMovieForm from "../../../components/AddMovieForm/AddMovieForm";
+import Hero from "../../../components/Hero/Hero";
+
+const CreateMovie = ({movies, setMovies}) => {
     return(
      <>
-        <h2>Create Movie</h2>
+        <Hero />
+        <AddMovieForm movies={movies} setMovies={setMovies} />
      </>   
     )
 }
