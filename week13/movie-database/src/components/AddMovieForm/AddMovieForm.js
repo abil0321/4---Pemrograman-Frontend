@@ -66,7 +66,7 @@ function AddMovieForm(props) {
     setFormErrors({...errors});
 
     console.log(isInvalid);
-    // return isInvalid;
+    return isInvalid;
 
   }
 
