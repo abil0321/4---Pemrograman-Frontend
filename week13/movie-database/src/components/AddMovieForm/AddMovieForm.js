@@ -3,8 +3,8 @@ import { useState } from "react";
 import Alert from "../Alert/Alert";
 import styles from "./AddMovieForm.module.css";
 import Button from "../ui/Button/Button";
-import {useNavigate} from "react-router-dom"
-import {useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { addMovie } from "../../features/movieSlice";
 
 // Menangkap props
@@ -20,27 +20,31 @@ function AddMovieForm(props) {
   // Destructing props: state movies
 
   // Membuat state title dan date
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     title: "",
     date: "",
-    poster:"",
+    poster: "",
     type: "",
   });
-  const {title, date, poster, type} = formData
+  const { title, date, poster, type } = formData;
 
   // Membuat state: isTitleError, isDateError
   const [formErrors, setFormErrors] = useState({
-    isTitleError: false,
-    isDateError: false,
-    isPosterError: false,
-    isTypeError: false,
+    title: false,
+    date: false,
+    poster: false,
+    type: false,
   });
 
-  const { isTitleError, isDateError, isPosterError, isTypeError } = formErrors;
+  const {
+    title: isTitleError,
+    date: isDateError,
+    poster: isPosterError,
+    type: isTypeError,
+  } = formErrors;
 
-
-  function handleChange(e){
-    const {name, value} = e.target;
+  function handleChange(e) {
+    const { name, value } = e.target;
 
     setFormData({
       ...formData,
@@ -48,9 +52,8 @@ function AddMovieForm(props) {
     });
   }
 
-
   function validate() {
-    const errors = {...formErrors};
+    const errors = { ...formErrors };
     let isInvalid = false;
 
     for (let key in errors) {
@@ -63,42 +66,40 @@ function AddMovieForm(props) {
       }
     }
 
-    setFormErrors({...errors});
+    setFormErrors({ ...errors });
 
     console.log(isInvalid);
     return isInvalid;
-
   }
 
-  function submitMovie(){
-     const movie = {
-        id: nanoid(),
-        title: title,
-        year: date,
-        type: type,
-        poster: poster,
-      };
+  function submitMovie() {
+    const movie = {
+      id: nanoid(),
+      title: title,
+      year: date,
+      type: type,
+      poster: poster,
+    };
 
-      // SOLVED: HOW TO ADD MOVIE TO MOVIES :)
+    // SOLVED: HOW TO ADD MOVIE TO MOVIES :)
 
-      dispatch(addMovie(movie));
-      navigation("/");
+    dispatch(addMovie(movie));
+    navigation("/");
   }
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    
+
     if (validate()) {
       submitMovie();
+
+      setFormData({
+        title: "",
+        date: "",
+        poster: "",
+        type: "",
+      });
     }
-    
-    setFormData({
-      title: '',
-      date: '',
-      poster: '',
-      type: '',
-    });
-    
   }
 
   return (
@@ -114,8 +115,6 @@ function AddMovieForm(props) {
         <div className={styles.form__right}>
           <h2 className={styles.form__title}>Add Movie Form</h2>
           <form onSubmit={handleSubmit}>
-
-
             <div className={styles.form__group}>
               <label htmlFor="title" className={styles.form__label}>
                 Title
@@ -159,7 +158,7 @@ function AddMovieForm(props) {
             </div>
 
             <div className={styles.form__group}>
-            <label htmlFor="image" className={styles.form__label}>
+              <label htmlFor="image" className={styles.form__label}>
                 Image
               </label>
 
@@ -181,22 +180,23 @@ function AddMovieForm(props) {
               <label htmlFor="type" className={styles.form__label}>
                 Type
               </label>
-            
-              
-                <select className={styles.form__dropbtn} value={type} name="type" onChange={handleChange}>
-{/*   	              
-    	              <option value="pilih">Pilih ...</option> */}
-    	              <option value="Comedy">Comedy</option>
-    	              <option value="Action">Action</option>
-    	              <option value="Thriler">Thriler</option>
-    	              <option value="Horor">Horor</option>
-    	              <option value="Drama">Drama</option>
-    	              <option value="dll ...">dll ...</option>
-   	               
-                </select>
-                {isTypeError && <Alert>Category Wajib Dipilih</Alert>}
-               
-           </div>
+
+              <select
+                className={styles.form__dropbtn}
+                value={type}
+                name="type"
+                onChange={handleChange}
+              >
+                <option value="pilih">Pilih ...</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Action">Action</option>
+                <option value="Thriler">Thriler</option>
+                <option value="Horor">Horor</option>
+                <option value="Drama">Drama</option>
+                <option value="dll ...">dll ...</option>
+              </select>
+              {isTypeError && <Alert>Category Wajib Dipilih</Alert>}
+            </div>
 
             <div>
               {/* <button className={styles.form__button}>Add Movie</button> */}
