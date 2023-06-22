@@ -4,9 +4,12 @@ import Movies from "../../../components/Movies/Movies";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ENDPOINTS from "../../../utils/constants/enpoints";
+import { useDispatch } from "react-redux";
+import { updateMOvies } from "../../../features/movieSlice";
 
 function DetailMovie() {
     const [movies, setMovies] = useState([]);
+    const dispatch = useDispatch();
     const {id} = useParams();
 
     // const API_KEY = process.env.REACT_APP_API_KEY;
@@ -16,7 +19,7 @@ function DetailMovie() {
 
         const response = await axios(ENDPOINTS.RECOM(id));
         
-        setMovies(response.data.results);
+        dispatch(updateMOvies(response.data.results));
     }
     
     useEffect(() => {
