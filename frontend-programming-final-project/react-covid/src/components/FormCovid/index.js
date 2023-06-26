@@ -1,22 +1,22 @@
-import styles from "./FormCovid.module.css";
+// import styles from "./FormCovid.module.css";
 import FormCovidImage from "../../assets/images/covid2.jpg";
+import StyledForm from "./FormCovidStyledComponent";
 import { useState } from "react";
 import Alert from "../Alert/Error";
 
 function FormCovid(props) {
-
   const { dataProvinsi, setDataProvinsi } = props;
-  
+
   const select_status = [
-    {name: 'Positif'},
-    {name: 'Sembuh'},
-    {name: 'Dirawat'},
-    {name: 'Meninggal'},
+    { name: "Positif" },
+    { name: "Sembuh" },
+    { name: "Dirawat" },
+    { name: "Meninggal" },
   ];
 
   const provinsi = dataProvinsi.provinces.map((dataP, index) => {
     return (
-      <option className={styles.form__option} value={dataP.kota} key={index}>
+      <option value={dataP.kota} key={index}>
         {dataP.kota}
       </option>
     );
@@ -24,11 +24,11 @@ function FormCovid(props) {
 
   const status_select = select_status.map((e, index) => {
     return (
-        <option className={styles.form__option} value={e.name} key={index}>
-            {e.name}
-        </option>
+      <option value={e.name} key={index}>
+        {e.name}
+      </option>
     );
-});
+  });
 
   const [kota, setKota] = useState("");
   const [status, setStatus] = useState("");
@@ -51,19 +51,22 @@ function FormCovid(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  if (kota === "") {
+    if (kota === "") {
       setIsKotaError(true);
-  }else if (status === "") {
+    } else if (status === "") {
       setIsStatusError(true);
-  }else if (jumlah === 0) {
+    } else if (jumlah === 0) {
       setIsJumlahError(true);
-  }else {
+    } else {
       if (status === "Sembuh") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, sembuh: parseInt(jumlah) + parseInt(province.sembuh)}
+              ? {
+                  ...province,
+                  sembuh: parseInt(jumlah) + parseInt(province.sembuh),
+                }
               : province
           ),
         };
@@ -73,27 +76,36 @@ function FormCovid(props) {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, dirawat: parseInt(jumlah) + parseInt(province.dirawat)}
+              ? {
+                  ...province,
+                  dirawat: parseInt(jumlah) + parseInt(province.dirawat),
+                }
               : province
           ),
         };
         setDataProvinsi(updatedData);
-      } else if(status === "Meninggal") {
+      } else if (status === "Meninggal") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, meninggal: parseInt(jumlah) + parseInt(province.meninggal)}
+              ? {
+                  ...province,
+                  meninggal: parseInt(jumlah) + parseInt(province.meninggal),
+                }
               : province
           ),
         };
         setDataProvinsi(updatedData);
-      } else if(status === "Positif") {
+      } else if (status === "Positif") {
         const updatedData = {
           ...dataProvinsi,
           provinces: dataProvinsi.provinces.map((province) =>
             province.kota === kota
-              ? { ...province, kasus: parseInt(jumlah) + parseInt(province.kasus)}
+              ? {
+                  ...province,
+                  kasus: parseInt(jumlah) + parseInt(province.kasus),
+                }
               : province
           ),
         };
@@ -103,26 +115,23 @@ function FormCovid(props) {
       setIsKotaError(false);
       setIsStatusError(false);
       setIsJumlahError(false);
-  }
+    }
   };
 
   return (
-    <div className={styles.container}>
-      <section className={styles.form}>
-        <div className={styles.form__left}>
-          <img className={styles.form__image} src={FormCovidImage} alt="" />
+    <StyledForm>
+      <section>
+        <div className="form__left">
+          <img src={FormCovidImage} alt="" />
         </div>
-        <div className={styles.form__right}>
-          <h2 className={styles.form__title}>Form Covid</h2>
+        <div className="form__right">
+          <h2 className="form__title">Form Covid</h2>
 
           <form onSubmit={handleSubmit}>
+            <div className="form__group">
+              <label htmlFor="type">Provinsi</label>
 
-            <div className={styles.form__group}>
-              <label htmlFor="type" className={styles.form__label}>
-                Provinsi
-              </label>
-
-              <select className={styles.form__dropbtn} name="kota" value={kota} onChange={handleKota}>
+              <select name="kota" value={kota} onChange={handleKota}>
                 <option>Pilih ...</option>
                 {provinsi}
               </select>
@@ -130,12 +139,10 @@ function FormCovid(props) {
               {isKotaError && <Alert>Kota Wajib Dipilih</Alert>}
             </div>
 
-            <div className={styles.form__group}>
-              <label htmlFor="type" className={styles.form__label}>
-                Status
-              </label>
+            <div className="form__group">
+              <label htmlFor="type">Status</label>
 
-              <select className={styles.form__dropbtn} name="status" value={status} onChange={handleStatus}>
+              <select name="status" value={status} onChange={handleStatus}>
                 <option>Pilih ...</option>
                 {status_select}
               </select>
@@ -143,13 +150,10 @@ function FormCovid(props) {
               {isStatusError && <Alert>Status Wajib Dipilih</Alert>}
             </div>
 
-            <div className={styles.form__group}>
-              <label htmlFor="title" className={styles.form__label}>
-                Jumlah
-              </label>
+            <div className="form__group">
+              <label htmlFor="title">Jumlah</label>
 
               <input
-                className={styles.form__input}
                 type="number"
                 name="jumlah"
                 value={jumlah}
@@ -159,12 +163,12 @@ function FormCovid(props) {
             </div>
 
             <div>
-              <button className={styles.form__button}>Submit</button>
+              <button>Submit</button>
             </div>
           </form>
         </div>
       </section>
-    </div>
+    </StyledForm>
   );
 }
 

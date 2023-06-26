@@ -1,23 +1,26 @@
-import styles from "./Footer.module.css";
+// import styles from "./Footer.module.css";
+import StyledFooter from "./FooterStyledComponent";
 
 const Footer = () => {
-    return (
-      <div className={styles.container}>
-      <footer className={styles.footer}>
+  return (
+    <StyledFooter>
+      <footer>
         <div>
-          <h1 className={styles.footer__brand}>COVID ID</h1>
-          <p className={styles.footer__subbrand}>Developed by Muhammad Salsabil</p>
+          <h1>COVID ID</h1>
+          <p>
+            Developed by Muhammad Salsabil
+          </p>
         </div>
         <div>
-          <ul className={styles.footer__list}>
-            <li className={styles.footer__item}>Global</li>
-            <li className={styles.footer__item}>Indonesia</li>
-            <li className={styles.footer__item}>Provinsi</li>
-            <li className={styles.footer__item}>About</li>
+          <ul>
+            <li>Global</li>
+            <li>Indonesia</li>
+            <li>Provinsi</li>
+            <li>About</li>
           </ul>
         </div>
       </footer>
-    </div>
-    );
+    </StyledFooter>
+  );
 };
 export default Footer;

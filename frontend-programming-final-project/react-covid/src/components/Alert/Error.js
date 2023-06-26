@@ -1,10 +1,12 @@
-import styles from "./Error.module.css";
+// import styles from "./Error.module.css";
+import StyledError from "./ErrorStyledComponent";
 
 const Error = (props) => {
-    return(
-        
-        <p className={ styles.error}>{props.children} *</p>
-    );
-}
+  return (
+    <StyledError>
+      <p>{props.children} *</p>
+    </StyledError>
+  );
+};
 
 export default Error;
