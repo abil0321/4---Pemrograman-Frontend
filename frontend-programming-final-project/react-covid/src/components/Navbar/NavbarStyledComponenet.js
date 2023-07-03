@@ -29,6 +29,7 @@ const StyledNavbar = styled.div`
     display: flex;
     flex-direction: column;
     list-style: none;
+    text-decoration: none;
 
     font-family: "Poppins";
     font-style: normal;
@@ -41,7 +42,17 @@ const StyledNavbar = styled.div`
   }
 
   li {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; 
+    text-decoration: none;
+  }
+
+  .link{
+    text-decoration: none;
+    color: white;
+  }
+
+  .link:hover {
+    color: greenyellow;
   }
 
   /* Medium Screen */

@@ -26,6 +26,15 @@ const StyledFooter = styled.div`
     margin-bottom: 1rem;
   }
 
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+
+  .link:hover {
+    color: greenyellow;
+  }
+
   /* Medium Screen */
   @media (min-width: 768px) {
     .footer {

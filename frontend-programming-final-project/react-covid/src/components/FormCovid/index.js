@@ -3,9 +3,17 @@ import FormCovidImage from "../../assets/images/covid2.jpg";
 import StyledForm from "./FormCovidStyledComponent";
 import { useState } from "react";
 import Alert from "../Alert/Error";
+import { addCovid } from "../../features/covidSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function FormCovid(props) {
-  const { dataProvinsi, setDataProvinsi } = props;
+  // const { dataProvinsi } = props;
+
+  const covid = useSelector((state) => state.covid.covid)
+  
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const select_status = [
     { name: "Positif" },
@@ -14,7 +22,7 @@ function FormCovid(props) {
     { name: "Meninggal" },
   ];
 
-  const provinsi = dataProvinsi.provinces.map((dataP, index) => {
+  const provinsi = covid.map((dataP, index) => {
     return (
       <option value={dataP.kota} key={index}>
         {dataP.kota}
@@ -30,93 +38,100 @@ function FormCovid(props) {
     );
   });
 
-  const [kota, setKota] = useState("");
-  const [status, setStatus] = useState("");
-  const [jumlah, setJumlah] = useState(0);
+  // const [kota, setKota] = useState("");
+  // const [status, setStatus] = useState("");
+  // const [jumlah, setJumlah] = useState(0);
 
-  const [isKotaError, setIsKotaError] = useState(false);
-  const [isStatusError, setIsStatusError] = useState(false);
-  const [isJumlahError, setIsJumlahError] = useState(false);
+  const [formData, setFormData] = useState({
+    kota: "",
+    status: "",
+    jumlah: 0,
+  });
+  const { kota, status, jumlah } = formData;
 
-  const handleKota = (e) => {
-    setKota(e.target.value);
-  };
-  const handleStatus = (e) => {
-    setStatus(e.target.value);
-  };
-  const handleJumlah = (e) => {
-    setJumlah(e.target.value);
-  };
+  // const [isKotaError, setIsKotaError] = useState(false);
+  // const [isStatusError, setIsStatusError] = useState(false);
+  // const [isJumlahError, setIsJumlahError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [formErrors, setFormErrors] = useState({
+    kota: "false",
+    status: "false",
+    jumlah: "false",
+  });
+
+  const {
+    kota: isKotaError,
+    status: isStatusError,
+    jumlah: isJumlahError,
+  } = formErrors;
+
+  // const handleKota = (e) => {
+  //   setKota(e.target.value);
+  // };
+  // const handleStatus = (e) => {
+  //   setStatus(e.target.value);
+  // };
+  // const handleJumlah = (e) => {
+  //   setJumlah(e.target.value);
+  // };
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    // const selectedStatus = select_status.find(item => item.name === value);
+
+    // console.log(selectedStatus);
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    
+  }
+
+  function validate() {
+    const errors = { ...formErrors };
+    let isInvalid = false;
+
+    for (let key in errors) {
+      if (formData[key] === "") {
+        errors[key] = true;
+        isInvalid = false;
+      } else {
+        errors[key] = false;
+        isInvalid = true;
+      }
+    }
+
+    setFormErrors({ ...errors });
+    return isInvalid;
+  }
+
+  function submitCovid() {
+    const covid = {
+      kota: kota,
+      status: status,
+      jumlah: parseInt(jumlah),
+    };
+    
+    console.log(covid);
+
+    dispatch(addCovid(covid));
+    navigation("/covid/provinsi");
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
 
-    if (kota === "") {
-      setIsKotaError(true);
-    } else if (status === "") {
-      setIsStatusError(true);
-    } else if (jumlah === 0) {
-      setIsJumlahError(true);
-    } else {
-      if (status === "Sembuh") {
-        const updatedData = {
-          ...dataProvinsi,
-          provinces: dataProvinsi.provinces.map((province) =>
-            province.kota === kota
-              ? {
-                  ...province,
-                  sembuh: parseInt(jumlah) + parseInt(province.sembuh),
-                }
-              : province
-          ),
-        };
-        setDataProvinsi(updatedData);
-      } else if (status === "Dirawat") {
-        const updatedData = {
-          ...dataProvinsi,
-          provinces: dataProvinsi.provinces.map((province) =>
-            province.kota === kota
-              ? {
-                  ...province,
-                  dirawat: parseInt(jumlah) + parseInt(province.dirawat),
-                }
-              : province
-          ),
-        };
-        setDataProvinsi(updatedData);
-      } else if (status === "Meninggal") {
-        const updatedData = {
-          ...dataProvinsi,
-          provinces: dataProvinsi.provinces.map((province) =>
-            province.kota === kota
-              ? {
-                  ...province,
-                  meninggal: parseInt(jumlah) + parseInt(province.meninggal),
-                }
-              : province
-          ),
-        };
-        setDataProvinsi(updatedData);
-      } else if (status === "Positif") {
-        const updatedData = {
-          ...dataProvinsi,
-          provinces: dataProvinsi.provinces.map((province) =>
-            province.kota === kota
-              ? {
-                  ...province,
-                  kasus: parseInt(jumlah) + parseInt(province.kasus),
-                }
-              : province
-          ),
-        };
-        setDataProvinsi(updatedData);
-      }
+    if (validate()) {
+      submitCovid();
 
-      setIsKotaError(false);
-      setIsStatusError(false);
-      setIsJumlahError(false);
+      setFormData({
+        kota: "",
+        status: "",
+        jumlah: "",
+      });
     }
-  };
+  }
 
   return (
     <StyledForm>
@@ -131,7 +146,7 @@ function FormCovid(props) {
             <div className="form__group">
               <label htmlFor="type">Provinsi</label>
 
-              <select name="kota" value={kota} onChange={handleKota}>
+              <select name="kota" value={kota} onChange={handleChange}>
                 <option>Pilih ...</option>
                 {provinsi}
               </select>
@@ -142,7 +157,7 @@ function FormCovid(props) {
             <div className="form__group">
               <label htmlFor="type">Status</label>
 
-              <select name="status" value={status} onChange={handleStatus}>
+              <select name="status" value={status} onChange={handleChange}>
                 <option>Pilih ...</option>
                 {status_select}
               </select>
@@ -157,13 +172,13 @@ function FormCovid(props) {
                 type="number"
                 name="jumlah"
                 value={jumlah}
-                onChange={handleJumlah}
+                onChange={handleChange}
               />
               {isJumlahError && <Alert>Jumlah Wajib Diisi</Alert>}
             </div>
 
             <div>
-              <button>Submit</button>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </div>

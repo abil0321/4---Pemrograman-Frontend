@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import StyledIndo from "./IndonesiaStyledComponent";
+import StyledGlobal from "./GlobalStyledComponent";
 // import data from "../../utils/constants/indonesia";
-import axios from "axios";
-import ENDPOINTS from "../../utils/constants/endpoints";
 // import styles from "./Indonesia.module.css";
+import axios from 'axios';
+import ENDPOINTS from "../../utils/constants/endpoints";
 
-const Indonesia = (props) => {
-  const [indonesiaStatus, setIndonesiaStatus] = useState([]);
+const Global = (props) => {
+  const [globalStatus, setGlobalStatus] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios(ENDPOINTS.INDONESIA); // Ganti URL_ENDPOINT dengan URL yang sesuai
-        setIndonesiaStatus(response.data.indonesia);
+        const response = await axios(ENDPOINTS.GLOBAL); // Ganti URL_ENDPOINT dengan URL yang sesuai
+        setGlobalStatus(response.data.global);
       } catch (error) {
         console.log(error);
       }
@@ -21,17 +21,17 @@ const Indonesia = (props) => {
     fetchData();
   }, []);
 
-  const data_indonesia = indonesiaStatus.map((item, index) => (
-    <div className="indonesia__card" key={index}>
-      <h1 key={item.id}>
+  const data_global = globalStatus.map((item, index) => (
+    <div className="indonesia__card">
+      <h1>
         {item.status.toUpperCase()}
       </h1>
 
       <p
         className={
-          item.status === "Positif"
+          item.status === "confirmed"
             ? "indonesia__card__positif"
-            : item.status === "Sembuh"
+            : item.status === "recovered"
             ? "indonesia__card__sembuh"
             : "indonesia__card__meninggal"
         }
@@ -42,20 +42,20 @@ const Indonesia = (props) => {
   ));
 
   return (
-    <StyledIndo>
+    <StyledGlobal>
       <div>
         <div className="indonesia__brand">
-          <h2>Indonesia</h2>
+          <h2>Global Situation</h2>
           <p>
-            Data Covid Berdasarkan Indonesia
+            Data Covid Berdasarkan Global
           </p>
         </div>
         <div className="indonesia__container__card">
-          {data_indonesia}
+          {data_global}
         </div>
       </div>
-    </StyledIndo>
+    </StyledGlobal>
   );
 };
 
-export default Indonesia;
+export default Global;

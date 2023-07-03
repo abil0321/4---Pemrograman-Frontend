@@ -1,18 +1,15 @@
-import { useSelector } from "react-redux";
-import TabelProvinsi from "../TabelProvinsi";
+
 // import styles from "./Provinsi.module.css";
 // import styles1 from "../TabelProvinsi/TabelProvinsi.module.css";
 import StyledTabelProvinsi from "../TabelProvinsi/TabelStyledComponent";
-import StyledProvinsi from "./ProvinsiStyledComponent";
+import TabelProvIndo from "../TableProvIndo";
+import StyledProvinsi from "./ProvIndoStyledComponent";
 
-function Provinsi() {
-  // const { dataProvinsi } = props;
-  
-  const covid = useSelector((state) => state.covid.covid)
-  console.log(covid);
-  
-  const provinsi = covid.map((dataP, index) => {
-    return <TabelProvinsi key={index} dataP={dataP} />;
+function ProvIndo(props) {
+  const { dataProvinsi } = props;
+
+  const provinsi = dataProvinsi.map((dataP, index) => {
+    return <TabelProvIndo key={index} dataP={dataP} />;
   });
 
   return (
@@ -45,4 +42,4 @@ function Provinsi() {
   );
 }
 
-export default Provinsi;
+export default ProvIndo;

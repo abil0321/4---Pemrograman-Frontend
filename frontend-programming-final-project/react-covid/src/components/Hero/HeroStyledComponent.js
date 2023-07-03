@@ -4,6 +4,7 @@ const StyledHero = styled.div`
   /* Small Screen */
   margin: 2rem auto;
   padding: 1rem;
+  
 
   section {
     display: flex;
