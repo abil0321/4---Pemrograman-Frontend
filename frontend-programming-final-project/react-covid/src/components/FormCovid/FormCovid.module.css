@@ -1,0 +1,156 @@
+/* Small Screen */
+.container {
+  margin: 1rem 1rem;
+  padding: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.form__left {
+  display: none;
+}
+
+.form__image {
+  max-width: 100%;
+  border-radius: 25px;
+  height: auto;
+}
+
+.form__title {
+  font-family: "Poppins";
+  font-style: normal;
+  /* identical to box height */
+
+  /* Primary */
+
+  color: #06d6a0;
+  margin-bottom: 1rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form__label {
+  margin-bottom: 1rem;
+  font-family: "Poppins";
+  font-style: normal;
+  /* identical to box height */
+
+  /* Gray Color */
+
+  color: #64748b;
+}
+
+.form__input {
+  outline: none;
+  padding: 1rem 0.5rem;
+  background: #ffffff;
+  /* Primary */
+
+  border: 2px solid #06d6a0;
+  border-radius: 10px;
+}
+
+.form__input:focus {
+  border: 3px solid #4361ee;
+}
+
+.form__dropbtn {
+  outline: none;
+  padding: 1rem 0.5rem;
+  background: #ffffff;
+  /* Primary */
+
+  border: 2px solid #06d6a0;
+  border-radius: 10px;
+}
+
+.form__dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.form__dropbtn:focus {
+    border: 3px solid #4361ee;
+  }
+
+.form__option {
+  border-radius: 10px;
+  color: #06d6a0;
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.form__button {
+  padding: 0.8rem 2rem;
+  border: none;
+  display: block;
+  margin: 0;
+  width: 100%;
+  background: #06d6a0;
+  border-radius: 10px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+    margin: 5rem auto;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form__left {
+    display: block;
+    flex-basis: 60%;
+  }
+
+  .form__right {
+    flex-basis: 40%;
+  }
+
+  .form__title {
+    font-weight: 500;
+    font-size: 61px;
+    line-height: 92px;
+    /* identical to box height */
+  }
+
+  .form__label {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+  }
+
+  .form__button {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+  }
+
+  .form__option {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    margin: 1rem;
+  }
+}
