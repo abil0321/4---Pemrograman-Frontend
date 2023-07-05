@@ -6,6 +6,7 @@ import Alert from "../Alert/Error";
 import { addCovid } from "../../features/covidSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Button from "../ui/Button/Button";
 
 function FormCovid(props) {
   // const { dataProvinsi } = props;
@@ -178,7 +179,8 @@ function FormCovid(props) {
             </div>
 
             <div>
-              <button type="submit">Submit</button>
+              {/* <button type="submit">Submit</button> */}
+              <Button type="submit" variant="aqua" full>Submit</Button>
             </div>
           </form>
         </div>

@@ -1,6 +1,7 @@
 // import styles from "./Hero.module.css";
 import StyledHero from "./HeroStyledComponent";
 import HeroImage from "./../../assets/images/Covid.png"; 
+import Button from "../ui/Button/Button";
 
 function Hero() {
   return (
@@ -14,7 +15,7 @@ function Hero() {
           <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
           </p>
-          <button>Watch</button>
+          <Button variant="aqua">Submit</Button>
         </div>
         <div className="hero__right">
           <img

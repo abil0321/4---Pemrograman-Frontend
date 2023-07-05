@@ -4,23 +4,17 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <StyledFooter>
-      <footer>
-        <div>
-          <h1>COVID ID</h1>
-          <p>
-            Developed by Muhammad Salsabil
-          </p>
-        </div>
+    <StyledFooter> 
+      
         <div>
           <ul>
-          <li>
+          {/* <li>
               <Link className="link" to="/">
                 Home
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link className="link" to="/covid/global">
+              <Link className="link" to="/">
                 Global
               </Link>
             </li>
@@ -41,7 +35,15 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </footer>
+
+        <div>
+          <h1>COVID ID</h1>
+          <span>
+            Developed by Muhammad Salsabil
+          </span>
+        </div>
+
+      
     </StyledFooter>
   );
 };

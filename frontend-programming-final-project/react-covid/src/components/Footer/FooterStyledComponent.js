@@ -1,29 +1,36 @@
 import styled from "styled-components";
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   /* Small Screen */
+  margin: 0;
   background-color: #06d6a0;
   padding: 1rem;
   color: #fff;
-
-  footer {
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
-  }
+  display: flex;
+  /* flex-direction: row-reverse; */
+  justify-content: space-between;
 
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 1px;
+    font-size: 1.4rem;
+    text-align: right;
+  }
+  span{
+    font-size: 0.7rem;
+    
   }
 
   ul {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-between;
     list-style: none;
+    margin-right: 1.5rem;
   }
 
   li {
-    margin-bottom: 1rem;
+    margin-right: 3rem; 
+    
   }
 
   .link {
@@ -37,15 +44,15 @@ const StyledFooter = styled.div`
 
   /* Medium Screen */
   @media (min-width: 768px) {
-    .footer {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
     h1 {
       margin: 0;
-      margin-left: 122px;
+      /* border: 2px solid red; */
+      text-align: right;
     }
 
     p {
@@ -69,6 +76,24 @@ const StyledFooter = styled.div`
      * Nothing TODO HERE.
      * We haven't styling footer.
      */
+    margin: 0;
+    background-color: #06d6a0;
+    padding: 1rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+
+    span {
+      margin-left: 3rem;
+    }
+
+    ul {
+      display: flex;
+      /* flex-direction: column; */
+      justify-content: space-evenly;
+      list-style: none;
+      margin-right: 1.5rem;
+    }
 
     h1 {
       font-family: "Poppins";

@@ -6,9 +6,11 @@ function Navbar() {
   return (
     <StyledNavbar>
       <nav>
+
         <div>
           <h1>COVID ID</h1>
         </div>
+
         <div>
           <ul>
             <li>
@@ -34,6 +36,7 @@ function Navbar() {
             
           </ul>
         </div>
+        
       </nav>
     </StyledNavbar>
   );

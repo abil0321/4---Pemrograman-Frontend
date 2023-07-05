@@ -90,7 +90,7 @@ option {
   font-style: normal;
 }
 
-button {
+/* button {
   padding: 0.8rem 2rem;
   border: none;
   display: block;
@@ -100,11 +100,11 @@ button {
   border-radius: 10px;
 
   font-family: "Poppins";
-  font-style: normal;
+  font-style: normal; */
   /* identical to box height */
-
+/* 
   color: #ffffff;
-}
+} */
 
 /* Large Screen */
 @media (min-width: 992px) {

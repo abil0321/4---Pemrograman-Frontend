@@ -6,6 +6,8 @@ import PageGlobal from "./pages/covid/global/GlobalCovid";
 import PageIndonesia from "./pages/covid/indonesia/IndonesiaCovid";
 import PageProvinsi from "./pages/covid/provinsi/ProvinsiCovid";
 import { Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "./utils/constants/theme/theme";
 // import data from "./utils/constants/provinces";
 
 function App() {
@@ -13,15 +15,17 @@ function App() {
 
   return (
     <div>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<PageGlobal />}></Route>
-          <Route path="/covid/about" element={<PageAbout />}></Route>
-          {/* <Route path="/covid/global" element={<PageGlobal />}></Route> */}
-          <Route path="/covid/indo" element={<PageIndonesia />}></Route>
-          <Route path="/covid/provinsi" element={<PageProvinsi />}></Route>
-        </Routes>
-      </Layout>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<PageGlobal />}></Route>
+            <Route path="/covid/about" element={<PageAbout />}></Route>
+            {/* <Route path="/covid/global" element={<PageGlobal />}></Route> */}
+            <Route path="/covid/indo" element={<PageIndonesia />}></Route>
+            <Route path="/covid/provinsi" element={<PageProvinsi />}></Route>
+          </Routes>
+        </Layout>
+      </ThemeProvider>
     </div>
   );
 }

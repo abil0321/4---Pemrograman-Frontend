@@ -22,7 +22,7 @@ const Global = (props) => {
   }, []);
 
   const data_global = globalStatus.map((item, index) => (
-    <div className="indonesia__card">
+    <div className="indonesia__card" key={index}>
       <h1>
         {item.status.toUpperCase()}
       </h1>
