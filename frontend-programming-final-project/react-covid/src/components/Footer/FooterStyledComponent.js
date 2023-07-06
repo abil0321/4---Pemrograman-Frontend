@@ -51,7 +51,7 @@ const StyledFooter = styled.footer`
     display: flex;
     flex-direction: row;
     justify-content: space-around;  
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
     align-items: center;
 
     h1 {
@@ -86,8 +86,7 @@ const StyledFooter = styled.footer`
     padding: 1rem;
     color: #fff;
     display: flex;
-    flex-direction: column-reverse;
-
+    flex-direction: row-reverse;
     justify-content: space-around;
 
     span {
