@@ -11,6 +11,7 @@ const StyledGlobal = styled.div`
     font-size: 50px;
     font-family: "Poppins";
     font-style: normal;
+    line-height: 3rem;
   }
 
   p {

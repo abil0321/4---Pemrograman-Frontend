@@ -4,46 +4,42 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <StyledFooter> 
+    <StyledFooter>
+      <div className="title">
+        <h1>COVID ID</h1>
+        <span>Developed by Muhammad Salsabil</span>
+      </div>
       
-        <div>
-          <ul>
-          {/* <li>
+      <ul>
+        {/* <li>
               <Link className="link" to="/">
                 Home
               </Link>
             </li> */}
-            <li>
-              <Link className="link" to="/">
-                Global
-              </Link>
-            </li>
-            <li>
-              <Link className="link" to="/covid/indo">
-                Indonesia
-              </Link>
-            </li>
-            <li>
-              <Link className="link" to="/covid/provinsi">
-                Provinsi
-              </Link>
-            </li>
-            <li>
-              <Link className="link" to="/covid/about">
-                About
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <li>
+          <Link className="link" to="/">
+            Global
+          </Link>
+        </li>
 
-        <div>
-          <h1>COVID ID</h1>
-          <span>
-            Developed by Muhammad Salsabil
-          </span>
-        </div>
+        <li>
+          <Link className="link" to="/covid/indo">
+            Indonesia
+          </Link>
+        </li>
 
-      
+        <li>
+          <Link className="link" to="/covid/provinsi">
+            Provinsi
+          </Link>
+        </li>
+
+        <li>
+          <Link className="link" to="/covid/about">
+            About
+          </Link>
+        </li>
+      </ul>
     </StyledFooter>
   );
 };
