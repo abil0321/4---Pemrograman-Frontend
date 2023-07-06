@@ -6,14 +6,19 @@ const StyledFooter = styled.footer`
   background-color: #06d6a0;
   padding: 1rem;
   color: #fff;
+  /* width: 100%; */
   display: flex;
-  /* flex-direction: row-reverse; */
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  /* justify-content: space-between; */
+
+  .title{
+    text-align: center;
+  }
+
 
   h1 {
     margin-bottom: 1px;
-    font-size: 1.4rem;
-    text-align: right;
+    font-size: 1rem;
   }
   span{
     font-size: 0.7rem;
@@ -23,13 +28,15 @@ const StyledFooter = styled.footer`
   ul {
     display: flex;
     /* flex-direction: column; */
-    justify-content: space-between;
+    justify-content: space-evenly;
     list-style: none;
-    margin-right: 1.5rem;
+    padding-left: 0;
+    /* margin-right: 1.5rem; */
+    /* border: 2px solid red; */
   }
 
   li {
-    margin-right: 3rem; 
+    /* margin-right: 1rem;  */
     
   }
 

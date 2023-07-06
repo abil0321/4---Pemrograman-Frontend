@@ -7,11 +7,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <Hero/>
+      <Hero />
       <main>
-        <Container>
-          {children}
-          </Container>
+        <Container>{children}</Container>
       </main>
       <Footer />
     </>
