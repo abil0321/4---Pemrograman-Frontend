@@ -11,18 +11,16 @@ const StyledFooter = styled.footer`
   flex-direction: column-reverse;
   /* justify-content: space-between; */
 
-  .title{
+  .title {
     text-align: center;
   }
-
 
   h1 {
     margin-bottom: 1px;
     font-size: 1rem;
   }
-  span{
+  span {
     font-size: 0.7rem;
-    
   }
 
   ul {
@@ -37,7 +35,6 @@ const StyledFooter = styled.footer`
 
   li {
     /* margin-right: 1rem;  */
-    
   }
 
   .link {
@@ -53,7 +50,8 @@ const StyledFooter = styled.footer`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around;  
+    flex-direction: column-reverse;
     align-items: center;
 
     h1 {
@@ -88,6 +86,8 @@ const StyledFooter = styled.footer`
     padding: 1rem;
     color: #fff;
     display: flex;
+    flex-direction: column-reverse;
+
     justify-content: space-around;
 
     span {
